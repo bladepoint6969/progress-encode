@@ -1,4 +1,4 @@
-# WaniKani API
+# Progress Encode
 
 [![CI]][Actions] [![Latest Version]][crates.io] [![Documentation]][docs.rs] ![License]
 
