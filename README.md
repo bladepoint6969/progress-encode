@@ -31,3 +31,5 @@ The minimum supported Rust toolchain version is currently **Rust 1.56.1**.
 [crates.io]: https://crates.io/crates/progress-encode
 [docs.rs]: https://docs.rs/progress-encode
 [License]: https://img.shields.io/crates/l/progress-encode.svg
+[Latest Version]: https://img.shields.io/crates/v/progress-encode.svg
+[Documentation]: https://img.shields.io/docsrs/progress-encode/latest
