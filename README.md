@@ -3,7 +3,7 @@
 [![CI]][Actions] [![Latest Version]][crates.io] [![Documentation]][docs.rs] ![License]
 
 `progress-encode` provides a Rust implementation of the Progress Software
-`ENCODE` function.
+[`ENCODE`] function.
 
 ## Usage
 
@@ -33,3 +33,4 @@ The minimum supported Rust toolchain version is currently **Rust 1.56.1**.
 [License]: https://img.shields.io/crates/l/progress-encode.svg?
 [Latest Version]: https://img.shields.io/crates/v/progress-encode.svg?
 [Documentation]: https://img.shields.io/docsrs/progress-encode/latest?
+[`ENCODE`]: https://docs.progress.com/bundle/openedge-abl-reference-117/page/ENCODE-function.html
