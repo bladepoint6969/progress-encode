@@ -35,6 +35,16 @@ static LOOKUP: &[u16] = &[
 ];
 
 /// Return a 16-character encoding of the `input` bytes.
+///
+/// ### Example usage
+///
+/// ```rust
+/// use progress_encode::encode;
+///
+/// let password = String::from("my-passw0rd");
+/// let encoded_password = encode(password.as_bytes());
+/// assert_eq!(encoded_password, "lEsdklcFaOOjlbma");
+/// ```
 pub fn encode(input: &[u8]) -> String {
     let mut scratch: [u8; 16] = [0; 16];
 
@@ -60,8 +70,7 @@ pub fn encode(input: &[u8]) -> String {
 
         if lower.is_ascii_uppercase() || lower.is_ascii_lowercase() {
             target.push(lower);
-        }
-        else {
+        } else {
             target.push(((byte >> 4) + 0x61) as char);
         }
     }
@@ -90,7 +99,6 @@ mod tests {
 
     #[test]
     fn test_encode() {
-
         let json = include_str!("tests.json");
 
         let test_cases: Vec<TestCase> = serde_json::from_str(json).expect("Deserialize tests");
@@ -102,5 +110,12 @@ mod tests {
             }
             assert_eq!(test.encoded, encode(&test.input));
         }
+    }
+
+    #[test]
+    fn test_example_password() {
+        let password = String::from("my-passw0rd");
+        let encoded_password = encode(password.as_bytes());
+        assert_eq!(encoded_password, "lEsdklcFaOOjlbma");
     }
 }
