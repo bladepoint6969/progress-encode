@@ -16,7 +16,7 @@ progress-encode = "0.1"
 
 ## Rust version support
 
-The minimum supported Rust toolchain version is currently **Rust 1.56.1**.
+The minimum supported Rust toolchain version is currently **Rust 1.57**.
 
 ## License
 
