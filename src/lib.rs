@@ -78,6 +78,7 @@ pub fn encode(input: &[u8]) -> String {
     target
 }
 
+#[inline]
 fn pr_hash(scratch: &[u8; 16], mut hash: u16) -> u16 {
     for byte in scratch.iter().rev() {
         hash = hash >> 8 ^ LOOKUP[(hash & 0xff) as usize] ^ LOOKUP[*byte as usize];
