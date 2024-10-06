@@ -51,21 +51,21 @@ pub fn encode(input: &[u8]) -> String {
     let mut hash: u16 = 17;
 
     for _ in 0..5 {
-        for j in 0..input.len() {
-            scratch[15 - (j % 16)] ^= input[j];
-        }
+        input.iter().enumerate().for_each(|(j, val)| {
+            scratch[15 - (j % 16)] ^= val;
+        });
 
-        for j in (0..16).step_by(2) {
+        (0..16).step_by(2).for_each(|j| {
             hash = pr_hash(&scratch, hash);
 
             scratch[j] = (hash & 0xff) as u8;
             scratch[j + 1] = ((hash >> 8) & 0xff) as u8;
-        }
+        });
     }
 
     let mut target = String::new();
 
-    for byte in scratch {
+    scratch.iter().for_each(|byte| {
         let lower = (byte & 0x7f) as char;
 
         if lower.is_ascii_uppercase() || lower.is_ascii_lowercase() {
@@ -73,16 +73,16 @@ pub fn encode(input: &[u8]) -> String {
         } else {
             target.push(((byte >> 4) + 0x61) as char);
         }
-    }
+    });
 
     target
 }
 
 #[inline]
 fn pr_hash(scratch: &[u8; 16], mut hash: u16) -> u16 {
-    for byte in scratch.iter().rev() {
+    scratch.iter().rev().for_each(|byte| {
         hash = hash >> 8 ^ LOOKUP[(hash & 0xff) as usize] ^ LOOKUP[*byte as usize];
-    }
+    });
     hash
 }
 
