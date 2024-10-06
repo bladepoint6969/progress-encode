@@ -8,7 +8,7 @@ homepage = "https://github.com/bladepoint6969/progress-encode"
 license = "MIT OR Apache-2.0"
 name = "progress-encode"
 repository = "https://github.com/bladepoint6969/progress-encode"
-rust-version = "1.56.1"
+rust-version = "1.60.0"
 version = "0.1.3"
 exclude = ["/.github", "/.vscode"]
 
